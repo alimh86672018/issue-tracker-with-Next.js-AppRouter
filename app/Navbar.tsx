@@ -9,8 +9,10 @@ import {
   Avatar,
   Box,
   Container,
+  Dialog,
   DropdownMenu,
   Flex,
+  IconButton,
   Text,
 } from "@radix-ui/themes";
 import { useSession } from "next-auth/react";
@@ -78,14 +80,15 @@ const AuthStatus = () => {
       {status === "authenticated" && (
         <DropdownMenu.Root>
           <DropdownMenu.Trigger>
-            <Avatar
-              src={session.user?.image!}
-              fallback="?"
-              size="2"
-              radius="full"
-              className="cursor-pointer"
-              referrerPolicy="no-referrer"
-            />
+            <Text>
+              <Avatar
+                src={session.user!.image! ? session.user!.image! : ""}
+                fallback="?"
+                size="2"
+                radius="full"
+                className="cursor-pointer"
+              />
+            </Text>
           </DropdownMenu.Trigger>
           <DropdownMenu.Content>
             <DropdownMenu.Label>
