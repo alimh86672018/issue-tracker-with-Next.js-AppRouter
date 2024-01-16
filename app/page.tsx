@@ -1,5 +1,12 @@
+import { useSearchParams } from "next/navigation";
 import Pagination from "./components/Pagination";
 
-export default function Home() {
-  return <Pagination itemCount={120} pageSize={10} currentPage={2} />;
+interface Props {
+  searchParams: { page: string };
+}
+
+export default function Home({ searchParams: { page } }: Props) {
+  return (
+    <Pagination itemCount={120} pageSize={10} currentPage={parseInt(page)} />
+  );
 }
