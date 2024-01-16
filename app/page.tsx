@@ -1,4 +1,3 @@
-import { useSearchParams } from "next/navigation";
 import Pagination from "./components/Pagination";
 
 interface Props {
